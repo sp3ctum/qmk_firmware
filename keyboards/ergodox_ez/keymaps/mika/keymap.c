@@ -38,7 +38,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 [BASE] = KEYMAP(  // layer 0 : default
         // left hand
-        KC_EQL,  KC_AT,       KC_DOLLAR, KC_3,          KC_4,    KC_5,    KC_LEFT,
+        NO_EQL,  KC_AT,       KC_DOLLAR, KC_3,          KC_4,    KC_5,    KC_LEFT,
         KC_DELT, KC_P,        KC_H,      KC_R,          KC_K,    KC_TAB,    TG(SYMB),
         KC_Z, KC_S,        KC_L,      KC_N,          KC_T,    KC_V,
         KC_LSFT, KC_X, KC_D,      KC_M,          KC_J,    KC_F,    KC_DOWN,
@@ -55,7 +55,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_END,
 
         // right hand
-        KC_RGHT,     KC_6,   KC_7,   KC_8,   KC_9,   KC_0,             KC_MINS,
+        KC_RGHT,     KC_6,   KC_7,   KC_8,   KC_9,   KC_0,             NO_EQL,
         TG(TXBOLT),  KC_AMPR,   KC_W,   KC_U,   KC_Y,   KC_B,             KC_Q,
         KC_G,   KC_A,   KC_I,   KC_O,   KC_E, KC_C,
         KC_UP, KC_SCOLON,   KC_QUOTE,   KC_M,KC_COMMA, KC_DOT, NO_MINS,
