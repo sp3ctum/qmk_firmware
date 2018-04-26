@@ -18,7 +18,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 /* Keymap 0: Basic layer
  *
  * ,--------------------------------------------------.           ,--------------------------------------------------.
- * |   \    |   !  |   "  |   @  |   $  |   %  | LEFT |           | RIGHT|   &  |   {  |   8  |   9  |   }  |   =    |
+ * |   \    |   !  |   "  |   @  |   $  |   %  | LEFT |           | RIGHT|   &  |   {  |   (  |   )  |   0  |   =    |
  * |--------+------+------+------+------+-------------|           |------+------+------+------+------+------+--------|
  * | Del    |   P  |   H  |   R  |   K  |  TAB |  L1  |           |  TX  |   /  |   W  |   U  |   Y  |   B  |   Q    |
  * |--------+------+------+------+------+------|      |           | BOLT |------+------+------+------+------+--------|
@@ -55,7 +55,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_END,
 
         // right hand
-        KC_RGHT, NO_AMPR, DE_LCBR,   KC_8,   KC_9, DE_RCBR,             NO_EQL,
+        KC_RGHT, NO_AMPR, DE_LCBR, NO_LPRN, NO_RPRN, DE_RCBR,             NO_EQL,
         TG(TXBOLT),  KC_AMPR,   KC_W,   KC_U,   KC_Y,   KC_B,             KC_Q,
         KC_G,   KC_A,   KC_I,   KC_O,   KC_E, KC_C,
         KC_UP, DE_OE, DE_AE,   KC_M,KC_COMMA, KC_DOT, NO_MINS,
