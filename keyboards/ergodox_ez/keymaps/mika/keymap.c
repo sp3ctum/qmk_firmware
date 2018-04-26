@@ -36,8 +36,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                                 |      |ace   | End  |       | PgDn |        |      |
  *                                 `--------------------'       `----------------------'
  */
-// If it accepts an argument (i.e, is a function), it doesn't need KC_.
-// Otherwise, it needs KC_*
 [BASE] = KEYMAP(  // layer 0 : default
         // left hand
         KC_EQL,  KC_AT,       KC_DOLLAR, KC_3,          KC_4,    KC_5,    KC_LEFT,
@@ -49,11 +47,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         // left thumb cluster
         // two top keys
         ALT_T(KC_APP),  KC_LGUI,
-        // small middle key
+        // left small middle key
         KC_HOME,
         // two big keys
         CTL_T(KC_ESCAPE),KC_ENTER,
-        // small bottom key
+        // left small bottom key
         KC_END,
 
         // right hand
@@ -66,9 +64,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         // right thumb cluster
         // two top small keys
         KC_LALT,        CTL_T(KC_ESC),
-        // middle and bottom small keys
+        // right middle and bottom small keys
         KC_PGUP, KC_PGDN,
-        // left and right big keys
+        // right big keys
         KC_BSPACE, KC_SPACE
     ),
 /* Keymap 1: Symbol Layer
