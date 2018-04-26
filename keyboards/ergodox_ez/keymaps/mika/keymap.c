@@ -14,7 +14,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 /* Keymap 0: Basic layer
  *
  * ,--------------------------------------------------.           ,--------------------------------------------------.
- * |   =    |   1  |   2  |   3  |   4  |   5  | LEFT |           | RIGHT|   6  |   7  |   8  |   9  |   0  |   -    |
+ * |   =    |   !  |   2  |   3  |   4  |   5  | LEFT |           | RIGHT|   6  |   7  |   8  |   9  |   0  |   -    |
  * |--------+------+------+------+------+-------------|           |------+------+------+------+------+------+--------|
  * | Del    |   Q  |   W  |   E  |   R  |   T  |  L1  |           |  TX  |   Y  |   U  |   I  |   O  |   P  |   \    |
  * |--------+------+------+------+------+------|      |           | BOLT |------+------+------+------+------+--------|
@@ -36,23 +36,36 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 // Otherwise, it needs KC_*
 [BASE] = KEYMAP(  // layer 0 : default
         // left hand
-        KC_EQL,         KC_1,         KC_2,   KC_3,   KC_4,   KC_5,   KC_LEFT,
-        KC_DELT,        KC_Q,         KC_W,   KC_E,   KC_R,   KC_T,   TG(SYMB),
-        KC_BSPC,        KC_A,         KC_S,   KC_D,   KC_F,   KC_G,
-        KC_LSFT,        CTL_T(KC_Z),  KC_X,   KC_C,   KC_V,   KC_B,   ALL_T(KC_NO),
-        LT(SYMB,KC_GRV),KC_QUOT,      LALT(KC_LSFT),  KC_LEFT,KC_RGHT,
-                                              ALT_T(KC_APP),  KC_LGUI,
-                                                              KC_HOME,
-                                               KC_SPC,KC_BSPC,KC_END,
+        KC_EQL,  KC_AT,       KC_DOLLAR, KC_3,          KC_4,    KC_5,    KC_LEFT,
+        KC_DELT, KC_P,        KC_H,      KC_R,          KC_K,    KC_TAB,    TG(SYMB),
+        KC_Z, KC_S,        KC_L,      KC_N,          KC_T,    KC_V,
+        KC_LSFT, KC_X, KC_D,      KC_M,          KC_J,    KC_F,    KC_DOWN,
+        LT(SYMB, KC_GRV),     KC_QUOT,   LALT(KC_LSFT), KC_LEFT, KC_RGHT,
+
+        // left thumb cluster
+        // two top keys
+        ALT_T(KC_APP),  KC_LGUI,
+        // small middle key
+        KC_HOME,
+        // two big keys
+        CTL_T(KC_ESCAPE),KC_ENTER,
+        // small bottom key
+        KC_END,
+
         // right hand
         KC_RGHT,     KC_6,   KC_7,   KC_8,   KC_9,   KC_0,             KC_MINS,
-        TG(TXBOLT),  KC_Y,   KC_U,   KC_I,   KC_O,   KC_P,             KC_BSLS,
-        KC_H,   KC_J,   KC_K,   KC_L,   LT(MDIA, KC_SCLN),GUI_T(KC_QUOT),
-        MEH_T(KC_NO),KC_N,   KC_M,   KC_COMM,KC_DOT, CTL_T(KC_SLSH),   KC_RSFT,
+        TG(TXBOLT),  KC_SLSH,   KC_W,   KC_U,   KC_Y,   KC_B,             KC_Q,
+        KC_G,   KC_A,   KC_I,   KC_O,   KC_E, KC_C,
+        KC_DOWN, KC_SCOLON,   KC_QUOTE,   KC_M,KC_COMMA, KC_DOT, KC_MINUS,
         KC_UP,  KC_DOWN,KC_LBRC,KC_RBRC,          KC_FN1,
+
+        // right thumb cluster
+        // two top small keys
         KC_LALT,        CTL_T(KC_ESC),
-        KC_PGUP,
-        KC_PGDN,KC_TAB, KC_ENT
+        // middle and bottom small keys
+        KC_PGUP, KC_PGDN,
+        // left and right big keys
+        KC_BSPACE, KC_SPACE
     ),
 /* Keymap 1: Symbol Layer
  *
