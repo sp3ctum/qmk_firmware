@@ -4,6 +4,10 @@
 #include "sendchar.h"
 #include "virtser.h"
 
+// easy access to symbols that actually work when the system keyboard is Finnish
+#include "keymap_nordic.h"
+#include "keymap_german.h"
+
 #define BASE 0 // default layer
 #define SYMB 1 // symbols
 #define MDIA 2 // media keys
@@ -56,7 +60,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_RGHT,     KC_6,   KC_7,   KC_8,   KC_9,   KC_0,             KC_MINS,
         TG(TXBOLT),  KC_AMPR,   KC_W,   KC_U,   KC_Y,   KC_B,             KC_Q,
         KC_G,   KC_A,   KC_I,   KC_O,   KC_E, KC_C,
-        KC_UP, KC_SCOLON,   KC_QUOTE,   KC_M,KC_COMMA, KC_DOT, KC_MINUS,
+        KC_UP, KC_SCOLON,   KC_QUOTE,   KC_M,KC_COMMA, KC_DOT, NO_MINS,
         KC_UP,  KC_DOWN,KC_LBRC,KC_RBRC,          KC_FN1,
 
         // right thumb cluster
