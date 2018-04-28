@@ -33,7 +33,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                                 ,------|------|------|       |------+--------+------.
  *                                 |      |      | Home |       | PgUp |        |      |
  *                                 | Space|Backsp|------|       |------|  Tab   |Enter |
- *                                 |      |ace   |  '   |       | PgDn |        |      |
+ *                                 |      |ace   |  '   |       |  _   |        |      |
  *                                 `--------------------'       `----------------------'
  */
 [BASE] = KEYMAP(  // layer 0 : default
@@ -65,7 +65,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         // two top small keys
         KC_LALT,        CTL_T(KC_ESC),
         // right middle and bottom small keys
-        KC_PGUP, KC_PGDN,
+        KC_PGUP, NO_UNDS,
         // right big keys
         KC_BSPACE, KC_SPACE
     ),
