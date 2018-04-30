@@ -32,8 +32,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                                        | App  | LGui |       | Alt  |Ctrl/Esc|
  *                                 ,------|------|------|       |------+--------+------.
  *                                 |      |      | Home |       | PgUp |        |      |
- *                                 | Space|Backsp|------|       |------|  Tab   |Enter |
- *                                 |      |ace   |  '   |       |  _   |        |      |
+ *                                 | Space|Backsp|------|       |------|  Back- |Enter |
+ *                                 |      |ace   |  '   |       |  _   |  Space |      |
  *                                 `--------------------'       `----------------------'
  */
 [BASE] = KEYMAP(  // layer 0 : default
