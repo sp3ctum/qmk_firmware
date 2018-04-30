@@ -18,7 +18,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 /* Keymap 0: Basic layer
  *
  * ,--------------------------------------------------.           ,--------------------------------------------------.
- * |   \    |   !  |   "  |   @  |   $  |   %  | LEFT |           | RIGHT|   &  |   {  |   (  |   )  |   }  |   =    |
+ * |   \    |   !  |   "  |   @  |   $  |   %  |   <  |           |  >   |   &  |   {  |   (  |   )  |   }  |   =    |
  * |--------+------+------+------+------+-------------|           |------+------+------+------+------+------+--------|
  * | Del    |   P  |   H  |   R  |   K  |  TAB |  L1  |           |  TX  |   /  |   W  |   U  |   Y  |   B  |   Q    |
  * |--------+------+------+------+------+------|      |           | BOLT |------+------+------+------+------+--------|
@@ -38,11 +38,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 [BASE] = KEYMAP(  // layer 0 : default
         // left hand
-        NO_BSLS, DE_EXLM, NO_QUO2, NO_AT, NO_DLR, DE_PERC,    KC_LEFT,
+        NO_BSLS, DE_EXLM, NO_QUO2, NO_AT, NO_DLR, DE_PERC, NO_LESS,
         KC_DELT, KC_P,        KC_H,      KC_R,          KC_K,    KC_TAB,    TG(SYMB),
         KC_Z, KC_S,        KC_L,      KC_N,          KC_T,    KC_V,
         KC_LSFT, KC_X, KC_D,      KC_M,          KC_J,    KC_F,    KC_DOWN,
-        LT(SYMB, KC_GRV),     KC_QUOT,   LALT(KC_LSFT), KC_LEFT, KC_RGHT,
+        MO(SYMB), KC_QUOT, LALT(KC_LSFT), KC_LEFT, KC_RGHT,
 
         // left thumb cluster
         // two top keys
@@ -55,7 +55,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         NO_APOS,
 
         // right hand
-        KC_RGHT, NO_AMPR, DE_LCBR, NO_LPRN, NO_RPRN, DE_RCBR,             NO_EQL,
+        NO_GRTR, NO_AMPR, DE_LCBR, NO_LPRN, NO_RPRN, DE_RCBR,             NO_EQL,
         TG(TXBOLT),  KC_AMPR,   KC_W,   KC_U,   KC_Y,   KC_B,             KC_Q,
         KC_G,   KC_A,   KC_I,   KC_O,   KC_E, KC_C,
         KC_UP, DE_OE, DE_AE,   KC_M,KC_COMMA, KC_DOT, NO_MINS,
