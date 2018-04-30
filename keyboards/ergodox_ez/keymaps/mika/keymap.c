@@ -58,8 +58,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         NO_GRTR, NO_AMPR, DE_LCBR, NO_LPRN, NO_RPRN, DE_RCBR,             NO_EQL,
         TG(TXBOLT),  KC_AMPR,   KC_W,   KC_U,   KC_Y,   KC_B,             KC_Q,
         KC_G,   KC_A,   KC_I,   KC_O,   KC_E, KC_C,
-        KC_UP, DE_OE, DE_AE,   KC_M,KC_COMMA, KC_DOT, NO_MINS,
-        DE_QST,  KC_DOWN, DE_PIPE,KC_RBRC,          KC_FN1,
+        KC_UP, DE_OE, DE_AE, KC_COMMA, KC_DOT, NO_MINS, MO(SYMB),
+        DE_QST,  KC_DOWN, DE_PIPE,KC_RBRC, KC_FN1,
 
         // right thumb cluster
         // two top small keys
