@@ -39,7 +39,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [BASE] = KEYMAP(  // layer 0 : default
         // left hand
         NO_BSLS, DE_EXLM, NO_QUO2, NO_AT, NO_DLR, DE_PERC, NO_LESS,
-        KC_DELT, KC_P,        KC_H,      KC_R,          KC_K,    KC_TAB,    TG(SYMB),
+        KC_DELT, KC_P,        KC_H,      KC_R,          KC_K,    KC_TAB,    MO(SYMB),
         KC_Z, KC_S,        KC_L,      KC_N,          KC_T,    KC_V,
         KC_LSFT, KC_X, KC_D,      KC_M,          KC_J,    KC_F,    KC_DOWN,
         MO(SYMB), KC_QUOT, LALT(KC_LSFT), KC_LEFT, KC_RGHT,
@@ -74,7 +74,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ,--------------------------------------------------.           ,--------------------------------------------------.
  * |Version |  F1  |  F2  |  F3  |  F4  |  F5  |      |           |      |  F6  |  F7  |  F8  |  F9  |  F10 |   F11  |
  * |--------+------+------+------+------+-------------|           |------+------+------+------+------+------+--------|
- * |        |   !  |   @  |   {  |   }  |   |  |      |           |      |   Up |   7  |   8  |   9  |   *  |   F12  |
+ * |        |   !  |   @  |   {  |   }  |   |  |(base)|           |      |   Up |   7  |   8  |   9  |   *  |   F12  |
  * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
  * |        |   #  |   $  |   (  |   )  |   `  |------|           |------| Down |   4  |   5  |   6  |   +  |        |
  * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
