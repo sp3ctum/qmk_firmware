@@ -4,6 +4,9 @@
 #include "sendchar.h"
 #include "virtser.h"
 
+/* https://github.com/qmk/qmk_firmware/commit/a25dbaad327f834dad6fb572b074bab7be1e1d0f */
+#define NO_ASTR LSFT(KC_BSLS)  // *
+
 // easy access to symbols that actually work when the system keyboard is Finnish
 #include "keymap_nordic.h"
 #include "keymap_german.h"
@@ -95,7 +98,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
        // left hand
        M(0),   KC_F1,  KC_F2,  KC_F3,  KC_F4,  KC_F5,  KC_TRNS,
        KC_TRNS,DE_EXLM,NO_AT,  NO_LCBR,NO_RCBR,NO_PIPE,KC_TRNS,
-       KC_TRNS,KC_HASH,NO_DLR, NO_EURO,KC_KP_ASTERISK,NO_GRV,
+       KC_TRNS,KC_HASH,NO_DLR, NO_EURO,NO_ASTR,NO_GRV,
        KC_TRNS,DE_PERC,NO_CIRC,DE_LBRC,DE_RBRC,DE_TILD,KC_TRNS,
        KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,
                                        KC_TRNS,KC_TRNS,
