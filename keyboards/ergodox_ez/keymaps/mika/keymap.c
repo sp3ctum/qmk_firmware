@@ -15,7 +15,6 @@
 #define SYMB 1 // symbols
 #define MDIA 2 // media keys
 #define TXBOLT 3 // TxBolt Steno Virtual Serial
-#define TXBOLT2 4 // TxBolt Steno Virtual Serial Alternative Layout
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 /* Keymap 0: Basic layer
@@ -224,49 +223,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
        KC_NO,   KC_NO,  
        KC_NO,  
        KC_NO,   M(Er),   M(Ur)
-),
-/* Keymap 4: TxBolt (Serial) Alternative
- *
- * ,--------------------------------------------------.           ,--------------------------------------------------.
- * |        |   #  |   #  |   #  |   #  |   #  |      |           |      |   #  |   #  |   #  |   #  |   #  |   #    |
- * |--------+------+------+------+------+-------------|           |------+------+------+------+------+------+--------|
- * |        |   S  |   T  |   P  |   H  |   *  |      |           |      |   *  |   F  |   P  |   L  |   T  |   D    |
- * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
- * |        |   S  |   K  |   W  |   R  |   *  |------|           |------|   *  |   R  |   B  |   G  |   S  |   Z    |
- * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
- * |        |      |      |      |      |      |      |           |      |      |      |      |      |      |        |
- * `--------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
- *   |      |      |      |   A  |   O  |                                       |   E  |   U  |      |      |      |
- *   `----------------------------------'                                       `----------------------------------'
- *                                        ,-------------.       ,-------------.
- *                                        |      |      |       |      |      |
- *                                 ,------|------|------|       |------+------+------.
- *                                 |      |      |      |       |      |      |      |
- *                                 |      |      |------|       |------|      |      |
- *                                 |      |      |      |       |      |      |      |
- *                                 `--------------------'       `--------------------'
- */
-// TxBolt over Serial
-[TXBOLT2] = KEYMAP(
-       KC_NO,   M(NM),   M(NM),   M(NM),   M(NM),   M(NM),  KC_NO,  
-       KC_NO,   M(Sl),   M(Tl),   M(Pl),   M(Hl),   M(X),   KC_NO,  
-       KC_NO,   M(Sl),   M(Kl),   M(Wl),   M(Rl),   M(X),
-       KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,  
-       KC_NO,   KC_NO,   KC_NO,   M(Al),   M(Ol),
-                                           KC_NO,   KC_NO,  
-                                                    KC_NO,  
-                                  KC_NO,   KC_NO,   KC_NO,  
-    // right hand
-       KC_NO,    M(NM),   M(NM),   M(NM),   M(NM),   M(NM),   M(NM),
-       KC_TRNS,  M(X),    M(Fr),   M(Pr),   M(Lr),   M(Tr),   M(Dr),
-                 M(X),    M(Rr),   M(Br),   M(Gr),   M(Sr),   M(Zr),
-       KC_NO,    KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,  
-                          M(Er),   M(Ur),   KC_NO,   KC_NO,   KC_NO,  
-       KC_NO,   KC_NO,  
-       KC_NO,  
-       KC_NO,   KC_NO,   KC_NO
-),
-};
+)};
 
 const uint16_t PROGMEM fn_actions[] = {
     [1] = ACTION_LAYER_TAP_TOGGLE(SYMB)                // FN1 - Momentary Layer 1 (Symbols)
