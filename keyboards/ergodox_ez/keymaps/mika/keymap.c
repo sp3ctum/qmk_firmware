@@ -118,7 +118,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ,--------------------------------------------------.           ,--------------------------------------------------.
  * |        |      |      |      |      |      |      |           |      |      |      |      |      |      |        |
  * |--------+------+------+------+------+-------------|           |------+------+------+------+------+------+--------|
- * |        |      |      |      |      |      |      |           |      |      |      |      |      |      |        |
+ * |        |      |      |      |      |      |      |           |      |      | Vi W |      |      | Vi B |        |
  * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
  * |        |      |      |      |      |      |------|           |------|      | Left | Down | Up   | Right|  Play  |
  * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
@@ -146,7 +146,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                   KC_TRNS, KC_TRNS, KC_TRNS,
     // right hand
        KC_TRNS,  KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-       KC_TRNS,  KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+       KC_TRNS,  KC_TRNS, LCTL(KC_RIGHT), KC_TRNS, KC_TRNS, LCTL(KC_LEFT), KC_TRNS,
                  KC_TRNS, KC_LEFT, KC_DOWN, KC_UP, KC_RIGHT, KC_MPLY,
        KC_TRNS,  KC_TRNS, KC_WBAK, KC_WFWD, KC_TRNS, KC_TRNS, KC_TRNS,
                           KC_VOLU, KC_VOLD, KC_MUTE, KC_TRNS, KC_TRNS,
