@@ -116,7 +116,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 /* Keymap 2: Media and mouse keys
  *
  * ,--------------------------------------------------.           ,--------------------------------------------------.
- * |        |      |      |      |      |      |      |           |      |      |      |      |      |      |        |
+ * |        |      |      |      | VI $ |      |      |           |      |      |      |      |      |      |        |
  * |--------+------+------+------+------+-------------|           |------+------+------+------+------+------+--------|
  * |        |      |      |      |      |      |      |           |      |      | Vi W |      |      | Vi B |        |
  * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
@@ -131,12 +131,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                                 ,------|------|------|       |------+------+------.
  *                                 |      |      |      |       |      |      |Brwser|
  *                                 |      |      |------|       |------|      |Back  |
- *                                 |      |      |      |       |      |      |      |
+ *                                 |      |      |      |       | VI _ |      |      |
  *                                 `--------------------'       `--------------------'
  */
 // MEDIA AND MOUSE
 [MDIA] = KEYMAP(
-       RESET,   KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+       RESET,   KC_TRNS, KC_TRNS, KC_TRNS, KC_END, KC_TRNS, KC_TRNS,
        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
@@ -152,7 +152,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                           KC_VOLU, KC_VOLD, KC_MUTE, KC_TRNS, KC_TRNS,
        KC_TRNS, KC_TRNS,
        KC_TRNS,
-       KC_TRNS, KC_TRNS, KC_WBAK
+       KC_HOME, KC_TRNS, KC_WBAK
 ),
 // TxBolt Codes
 #define Sl 0b00000001
