@@ -15,146 +15,146 @@
 #define SYMB 1 // symbols
 #define MDIA 2 // media keys
 #define TXBOLT 3 // TxBolt Steno Virtual Serial
+#define KEYLOCK 4 // key lock layer
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-/* Keymap 0: Basic layer
- *
- * ,--------------------------------------------------.           ,--------------------------------------------------.
- * |   \    |   !  |   "  |   @  |   $  |   %  |   <  |           |  >   |   &  |   {  |   (  |   )  |   }  |   =    |
- * |--------+------+------+------+------+-------------|           |------+------+------+------+------+------+--------|
- * | Del    |   P  |   H  |   R  |   K  |  TAB |  L1  |           |  TX  |   /  |   W  |   U  |   Y  |   B  |   Q    |
- * |--------+------+------+------+------+------|      |           | BOLT |------+------+------+------+------+--------|
- * |   Z    |   S  |   L  |   N  |   T  |   V  |------|           |------|   G  |   A  |   I  |   O  |   E  |   C    |
- * |--------+------+------+------+------+------| DOWN |           |  UP  |------+------+------+------+------+--------|
- * | LShift |   X  |   D  |   M  |   J  |   F  |      |           |      |   Ö  |   Ä  |   M  |   ,  |   .  | -      |
- * `--------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
- *   |Grv/L1|  '"  |AltShf| Left | Right|                                       |  ?   | Down |   |  |   ¨  | ~L1  |
- *   `----------------------------------'                                       `----------------------------------'
- *                                        ,-------------.       ,-------------.
- *                                        | App  | LGui |       | Alt  |Ctrl/Esc|
- *                                 ,------|------|------|       |------+--------+------.
- *                                 |Ctrl /|      | Home |       | PgUp |        |      |
- *                                 |Esc   |Backsp|------|       |------|  Back- |Space |
- *                                 |      |ace   | '/ALT|       |  _   |  Space |      |
- *                                 `--------------------'       `----------------------'
- */
-[BASE] = KEYMAP(  // layer 0 : default
-        // left hand
-        NO_BSLS, DE_EXLM, NO_QUO2, NO_AT, NO_DLR, DE_PERC, NO_LESS,
-        KC_DELT, KC_P,        KC_H,      KC_R,          KC_K,    KC_TAB,    MO(SYMB),
-        KC_Z, KC_S,        KC_L,      KC_N,          KC_T,    KC_V,
-        KC_LSFT, KC_X, KC_D,      KC_M,          KC_J,    KC_F,    KC_DOWN,
-        TG(MDIA), KC_QUOT, LALT(KC_LSFT), KC_LEFT, KC_RGHT,
+  /* Keymap 0: Basic layer
+   *
+   * ,--------------------------------------------------.           ,--------------------------------------------------.
+   * |   \    |   !  |   "  |   @  |   $  |   %  |   <  |           |  >   |   &  |   {  |   (  |   )  |   }  |   =    |
+   * |--------+------+------+------+------+-------------|           |------+------+------+------+------+------+--------|
+   * | Del    |   P  |   H  |   R  |   K  |  TAB |  L1  |           |  TX  |   /  |   W  |   U  |   Y  |   B  |   Q    |
+   * |--------+------+------+------+------+------|      |           | BOLT |------+------+------+------+------+--------|
+   * |   Z    |   S  |   L  |   N  |   T  |   V  |------|           |------|   G  |   A  |   I  |   O  |   E  |   C    |
+   * |--------+------+------+------+------+------| DOWN |           |  UP  |------+------+------+------+------+--------|
+   * | LShift |   X  |   D  |   M  |   J  |   F  |      |           |      |   Ö  |   Ä  |   M  |   ,  |   .  | -      |
+   * `--------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
+   *   |Grv/L1|  '"  |AltShf| Left | Right|                                       |  ?   | Down |   |  |   ¨  | ~L1  |
+   *   `----------------------------------'                                       `----------------------------------'
+   *                                        ,-------------.       ,-------------.
+   *                                        | App  | LGui |       | Alt  |Ctrl/Esc|
+   *                                 ,------|------|------|       |------+--------+------.
+   *                                 |Ctrl /|      | Home |       | PgUp |        |      |
+   *                                 |Esc   |Backsp|------|       |------|  Back- |Space |
+   *                                 |      |ace   | '/ALT|       |  _   |  Space |      |
+   *                                 `--------------------'       `----------------------'
+   */
+  [BASE] = KEYMAP(  // layer 0 : default
+                  // left hand
+                  NO_BSLS, DE_EXLM, NO_QUO2, NO_AT, NO_DLR, DE_PERC, NO_LESS,
+                  KC_DELT, KC_P,        KC_H,      KC_R,          KC_K,    KC_TAB,    MO(SYMB),
+                  KC_Z, KC_S,        KC_L,      KC_N,          KC_T,    KC_V,
+                  KC_LSFT, KC_X, KC_D,      KC_M,          KC_J,    KC_F,    KC_DOWN,
+                  TG(MDIA), KC_QUOT, LALT(KC_LSFT), KC_LEFT, KC_RGHT,
 
-        // left thumb cluster
-        // two top keys
-        ALT_T(KC_APP),  KC_LGUI,
-        // left small middle key
-        KC_HOME,
-        // two big keys
-        CTL_T(KC_ESCAPE),KC_ENTER,
-        // left small bottom key
-        ALT_T(NO_APOS),
+                  // left thumb cluster
+                  // two top keys
+                  ALT_T(KC_APP),  KC_LGUI,
+                  // left small middle key
+                  KC_HOME,
+                  // two big keys
+                  CTL_T(KC_ESCAPE),KC_ENTER,
+                  // left small bottom key
+                  ALT_T(NO_APOS),
 
-        // right hand
-        NO_GRTR, NO_AMPR, DE_LCBR, NO_LPRN, NO_RPRN, DE_RCBR,             NO_EQL,
-        TG(TXBOLT),  KC_AMPR,   KC_W,   KC_U,   KC_Y,   KC_B,             KC_Q,
-        KC_G,   KC_A,   KC_I,   KC_O,   KC_E, KC_C,
-        KC_UP, DE_OE, DE_AE, KC_COMMA, KC_DOT, NO_MINS, MO(SYMB),
-        DE_QST,  KC_DOWN, DE_PIPE,KC_RBRC, KC_FN1,
+                  // right hand
+                  NO_GRTR, NO_AMPR, DE_LCBR, NO_LPRN, NO_RPRN, DE_RCBR,             NO_EQL,
+                  TG(TXBOLT),  KC_AMPR,   KC_W,   KC_U,   KC_Y,   KC_B,             KC_Q,
+                  KC_G,   KC_A,   KC_I,   KC_O,   KC_E, KC_C,
+                  KC_UP, DE_OE, DE_AE, KC_COMMA, KC_DOT, NO_MINS, MO(SYMB),
+                  DE_QST,  KC_DOWN, DE_PIPE,KC_RBRC, TG(KEYLOCK),
 
-        // right thumb cluster
-        // two top small keys
-        KC_LALT,        CTL_T(KC_ESC),
-        // right middle and bottom small keys
-        KC_PGUP, NO_UNDS,
-        // right big keys
-        KC_BSPACE, KC_SPACE
-    ),
-/* Keymap 1: Symbol Layer
- *
- * ,--------------------------------------------------.           ,--------------------------------------------------.
- * |Version |  F1  |  F2  |  F3  |  F4  |  F5  |      |           |      |  F6  |  F7  |  F8  |  F9  |  F10 |   F11  |
- * |--------+------+------+------+------+-------------|           |------+------+------+------+------+------+--------|
- * |        |   !  |   @  |   {  |   }  |   |  |(base)|           |      |   Up |   7  |   8  |   9  |   *  |   F12  |
- * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
- * |        |   #  |   $  |   €  |   *  |   `  |------|           |------| Down |   4  |   5  |   6  |   +  |        |
- * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
- * |        |   %  |   ^  |   [  |   ]  |   ~  |      |           |      |   &  |   1  |   2  |   3  |   \  | (base) |
- * `--------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
- *   |      |      |      |      |      |                                       |   0  |    . |      |   =  |      |
- *   `----------------------------------'                                       `----------------------------------'
- *                                        ,-------------.       ,-------------.
- *                                        |      |      |       | vol- | vol- |
- *                                 ,------|------|------|       |------+------+------.
- *                                 |      |      |      |       | mute |      |      |
- *                                 |      |      |------|       |------|      |      |
- *                                 |      |      |      |       |      |      |      |
- *                                 `--------------------'       `--------------------'
- */
-// SYMBOLS
-[SYMB] = KEYMAP(
-       // left hand
-       M(0),   KC_F1,  KC_F2,  KC_F3,  KC_F4,  KC_F5,  KC_TRNS,
-       KC_TRNS,DE_EXLM,NO_AT,  NO_LCBR,NO_RCBR,NO_PIPE,KC_TRNS,
-       KC_TRNS,KC_HASH,NO_DLR, NO_EURO,NO_ASTR,NO_GRV,
-       KC_TRNS,DE_PERC,NO_CIRC,DE_LBRC,DE_RBRC,DE_TILD,KC_TRNS,
-       KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,
-                                       KC_TRNS,KC_TRNS,
-                                               KC_TRNS,
-                               KC_TRNS,KC_TRNS,KC_TRNS,
-       // right hand
-       KC_TRNS, KC_F6,   KC_F7,  KC_F8,   KC_F9,   KC_F10,  KC_F11,
-       KC_TRNS, KC_UP,   KC_7,   KC_8,    KC_9,    KC_ASTR, KC_F12,
-                KC_DOWN, KC_4,   KC_5,    KC_6,    NO_PLUS, KC_TRNS,
-       KC_TRNS, NO_AMPR, KC_1,   KC_2,    KC_3,    NO_BSLS, KC_TRNS,
-                         KC_0,   KC_DOT,  KC_TRNS, NO_EQL,  KC_TRNS,
-       KC_VOLD, KC_VOLU,
-       KC_MUTE,
-       KC_TRNS, KC_TRNS, KC_TRNS
-),
-/* Keymap 2: Media and mouse keys
- *
- * ,--------------------------------------------------.           ,--------------------------------------------------.
- * |        |      |      |      | VI $ |      |      |           |      |      |      |      |      |      |        |
- * |--------+------+------+------+------+-------------|           |------+------+------+------+------+------+--------|
- * |        |      |      |      |      |      |      |           |      |      | Vi W |      |      | Vi B |        |
- * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
- * |        |      |      |      |      |      |------|           |------|      | Left | Down | Up   | Right|  Play  |
- * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
- * |        |      |      |      |      |      |      |           |      |      | Back | Fwd  |      |      |        |
- * `--------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
- *   |      |      |      | Lclk | Rclk |                                       |VolUp |VolDn | Mute |      |      |
- *   `----------------------------------'                                       `----------------------------------'
- *                                        ,-------------.       ,-------------.
- *                                        |      |      |       |      |      |
- *                                 ,------|------|------|       |------+------+------.
- *                                 |      |      |      |       |      |      |Brwser|
- *                                 |      |      |------|       |------|      |Back  |
- *                                 |      |      |      |       | VI _ |      |      |
- *                                 `--------------------'       `--------------------'
- */
-// MEDIA AND MOUSE
-[MDIA] = KEYMAP(
-       RESET,   KC_TRNS, KC_TRNS, KC_TRNS, KC_END, KC_TRNS, KC_TRNS,
-       KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-       KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-       KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-       KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-                                           KC_TRNS, KC_TRNS,
-                                                    KC_TRNS,
-                                  KC_TRNS, KC_TRNS, KC_TRNS,
-    // right hand
-       KC_TRNS,  KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-       KC_TRNS,  KC_TRNS, LCTL(KC_RIGHT), KC_TRNS, KC_TRNS, LCTL(KC_LEFT), KC_TRNS,
-                 KC_TRNS, KC_LEFT, KC_DOWN, KC_UP, KC_RIGHT, KC_MPLY,
-       KC_TRNS,  KC_TRNS, KC_WBAK, KC_WFWD, KC_TRNS, KC_TRNS, KC_TRNS,
-                          KC_VOLU, KC_VOLD, KC_MUTE, KC_TRNS, KC_TRNS,
-       KC_TRNS, KC_TRNS,
-       KC_TRNS,
-       KC_HOME, KC_TRNS, KC_WBAK
-),
-// TxBolt Codes
+                  // right thumb cluster
+                  // two top small keys
+                  KC_LALT,        CTL_T(KC_ESC),
+                  // right middle and bottom small keys
+                  KC_PGUP, NO_UNDS,
+                  // right big keys
+                  KC_BSPACE, KC_SPACE),
+  /* Keymap 1: Symbol Layer
+   *
+   * ,--------------------------------------------------.           ,--------------------------------------------------.
+   * |Version |  F1  |  F2  |  F3  |  F4  |  F5  |      |           |      |  F6  |  F7  |  F8  |  F9  |  F10 |   F11  |
+   * |--------+------+------+------+------+-------------|           |------+------+------+------+------+------+--------|
+   * |        |   !  |   @  |   {  |   }  |   |  |(base)|           |      |   Up |   7  |   8  |   9  |   *  |   F12  |
+   * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
+   * |        |   #  |   $  |   €  |   *  |   `  |------|           |------| Down |   4  |   5  |   6  |   +  |        |
+   * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
+   * |        |   %  |   ^  |   [  |   ]  |   ~  |      |           |      |   &  |   1  |   2  |   3  |   \  | (base) |
+   * `--------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
+   *   |      |      |      |      |      |                                       |   0  |    . |      |   =  |      |
+   *   `----------------------------------'                                       `----------------------------------'
+   *                                        ,-------------.       ,-------------.
+   *                                        |      |      |       | vol- | vol- |
+   *                                 ,------|------|------|       |------+------+------.
+   *                                 |      |      |      |       | mute |      |      |
+   *                                 |      |      |------|       |------|      |      |
+   *                                 |      |      |      |       |      |      |      |
+   *                                 `--------------------'       `--------------------'
+   */
+  // SYMBOLS
+  [SYMB] = KEYMAP(
+                  // left hand
+                  M(0),   KC_F1,  KC_F2,  KC_F3,  KC_F4,  KC_F5,  KC_TRNS,
+                  KC_TRNS,DE_EXLM,NO_AT,  NO_LCBR,NO_RCBR,NO_PIPE,KC_TRNS,
+                  KC_TRNS,KC_HASH,NO_DLR, NO_EURO,NO_ASTR,NO_GRV,
+                  KC_TRNS,DE_PERC,NO_CIRC,DE_LBRC,DE_RBRC,DE_TILD,KC_TRNS,
+                  KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,
+                  KC_TRNS,KC_TRNS,
+                  KC_TRNS,
+                  KC_TRNS,KC_TRNS,KC_TRNS,
+                  // right hand
+                  KC_TRNS, KC_F6,   KC_F7,  KC_F8,   KC_F9,   KC_F10,  KC_F11,
+                  KC_TRNS, KC_UP,   KC_7,   KC_8,    KC_9,    KC_ASTR, KC_F12,
+                  KC_DOWN, KC_4,   KC_5,    KC_6,    NO_PLUS, KC_TRNS,
+                  KC_TRNS, NO_AMPR, KC_1,   KC_2,    KC_3,    NO_BSLS, KC_TRNS,
+                  KC_0,   KC_DOT,  KC_TRNS, NO_EQL,  KC_TRNS,
+                  KC_VOLD, KC_VOLU,
+                  KC_MUTE,
+                  KC_TRNS, KC_TRNS, KC_TRNS
+                  ),
+  /* Keymap 2: Media and mouse keys
+   *
+   * ,--------------------------------------------------.           ,--------------------------------------------------.
+   * |        |      |      |      | VI $ |      |      |           |      |      |      |      |      |      |        |
+   * |--------+------+------+------+------+-------------|           |------+------+------+------+------+------+--------|
+   * |        |      |      |      |      |      |      |           |      |      | Vi W |      |      | Vi B |        |
+   * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
+   * |        |      |      |      |      |      |------|           |------|      | Left | Down | Up   | Right|  Play  |
+   * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
+   * |        |      |      |      |      |      |      |           |      |      | Back | Fwd  |      |      |        |
+   * `--------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
+   *   |      |      |      | Lclk | Rclk |                                       |VolUp |VolDn | Mute |      |      |
+   *   `----------------------------------'                                       `----------------------------------'
+   *                                        ,-------------.       ,-------------.
+   *                                        |      |      |       |      |      |
+   *                                 ,------|------|------|       |------+------+------.
+   *                                 |      |      |      |       |      |      |Brwser|
+   *                                 |      |      |------|       |------|      |Back  |
+   *                                 |      |      |      |       | VI _ |      |      |
+   *                                 `--------------------'       `--------------------'
+   */
+  // MEDIA AND MOUSE
+  [MDIA] = KEYMAP(
+                  RESET,   KC_TRNS, KC_TRNS, KC_TRNS, KC_END, KC_TRNS, KC_TRNS,
+                  KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+                  KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+                  KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+                  KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+                  KC_TRNS, KC_TRNS,
+                  KC_TRNS,
+                  KC_TRNS, KC_TRNS, KC_TRNS,
+                  // right hand
+                  KC_TRNS,  KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+                  KC_TRNS,  KC_TRNS, LCTL(KC_RIGHT), KC_TRNS, KC_TRNS, LCTL(KC_LEFT), KC_TRNS,
+                  KC_TRNS, KC_LEFT, KC_DOWN, KC_UP, KC_RIGHT, KC_MPLY,
+                  KC_TRNS,  KC_TRNS, KC_WBAK, KC_WFWD, KC_TRNS, KC_TRNS, KC_TRNS,
+                  KC_VOLU, KC_VOLD, KC_MUTE, KC_TRNS, KC_TRNS,
+                  KC_TRNS, KC_TRNS,
+                  KC_TRNS,
+                  KC_HOME, KC_TRNS, KC_WBAK
+                  ),
+  // TxBolt Codes
 #define Sl 0b00000001
 #define Tl 0b00000010
 #define Kl 0b00000100
@@ -222,11 +222,28 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                           KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,  
        KC_NO,   KC_NO,  
        KC_NO,  
-       KC_NO,   M(Er),   M(Ur)
-)};
+       KC_NO,   M(Er),   M(Ur)),
+
+  [KEYLOCK] = KEYMAP(KC_NO, KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
+                     KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,  KC_NO,
+                     KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
+                     KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,   KC_NO,
+                     KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
+                     KC_NO,   KC_NO,
+                     KC_NO,
+                     KC_NO, KC_NO,   KC_NO,
+                     // right hand
+                     TO(BASE), KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
+                     KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
+                     KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
+                     KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
+                     KC_NO,   KC_NO,   KC_NO,   KC_NO, KC_NO,
+                     KC_NO,   KC_NO,
+                     KC_NO,
+                     KC_NO, KC_NO, KC_NO)};
 
 const uint16_t PROGMEM fn_actions[] = {
-    [1] = ACTION_LAYER_TAP_TOGGLE(SYMB)                // FN1 - Momentary Layer 1 (Symbols)
+  [1] = ACTION_LAYER_TAP_TOGGLE(SYMB)                // FN1 - Momentary Layer 1 (Symbols)
 };
 
 uint8_t chord[4] = {0,0,0,0};
@@ -283,6 +300,7 @@ void matrix_scan_user(void) {
   ergodox_right_led_1_off();
   ergodox_right_led_2_off();
   ergodox_right_led_3_off();
+
   switch (layer) {
     // TODO: Make this relevant to the ErgoDox EZ.
   case 1:
@@ -293,6 +311,9 @@ void matrix_scan_user(void) {
     break;
   case 3:
     ergodox_right_led_3_on();
+  case 4:
+    ergodox_right_led_1_on();
+    ergodox_right_led_2_on();
   default:
     // none
     break;
