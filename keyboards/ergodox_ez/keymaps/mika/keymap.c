@@ -29,7 +29,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    * |--------+------+------+------+------+------| DOWN |           |  UP  |------+------+------+------+------+--------|
    * | LShift |   X  |   D  |   M  |   J  |   F  |      |           |      |   Ö  |   Ä  |   M  |   ,  |   .  | -      |
    * `--------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
-   *   |Grv/L1|  '"  |AltShf| Left | Right|                                       |  ?   | Down |   |  |   ¨  | ~L1  |
+   *   |Grv/L1|  '"  |AltShf| Left | Right|                                       |  ?   |Alttab|   |  |   ¨  | ~L1  |
    *   `----------------------------------'                                       `----------------------------------'
    *                                        ,-------------.       ,-------------.
    *                                        | App  | LGui |       | Alt  |Ctrl/Esc|
@@ -62,7 +62,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                   TG(TXBOLT),  KC_AMPR,   KC_W,   KC_U,   KC_Y,   KC_B,             KC_Q,
                   KC_G,   KC_A,   KC_I,   KC_O,   KC_E, KC_C,
                   KC_UP, DE_OE, DE_AE, KC_COMMA, KC_DOT, NO_MINS, MO(SYMB),
-                  DE_QST,  KC_DOWN, DE_PIPE,KC_RBRC, TG(KEYLOCK),
+                  DE_QST, LALT(KC_TAB), DE_PIPE,KC_RBRC, TG(KEYLOCK),
 
                   // right thumb cluster
                   // two top small keys
@@ -311,9 +311,11 @@ void matrix_scan_user(void) {
     break;
   case 3:
     ergodox_right_led_3_on();
+    break;
   case 4:
     ergodox_right_led_1_on();
     ergodox_right_led_2_on();
+    break;
   default:
     // none
     break;
