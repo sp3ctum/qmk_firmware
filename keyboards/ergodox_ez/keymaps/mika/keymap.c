@@ -17,6 +17,7 @@
 #define MDIA 2 // media keys
 #define TXBOLT 3 // TxBolt Steno Virtual Serial
 #define KEYLOCK 4 // key lock layer
+#define WNDOW 5 // window management in Fedora Linux
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   /* Keymap 0: Basic layer
@@ -26,7 +27,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    * |--------+------+------+------+------+-------------|           |------+------+------+------+------+------+--------|
    * | Del    |   P  |   H  |   R  |   K  |  TAB |  L1  |           |  TX  |   /  |   W  |   U  |   Y  |   B  |   Q    |
    * |--------+------+------+------+------+------|      |           | BOLT |------+------+------+------+------+--------|
-   * |   Z    |   S  |   L  |   N  |   T  |   V  |------|           |------|   G  |   A  |   I  |   O  |   E  |   C    |
+   * |   Z    |   S  |   L  |   N  |T/WIND|   V  |------|           |------|   G  |   A  |   I  |   O  |   E  |   C    |
    * |--------+------+------+------+------+------| DOWN |           |  UP  |------+------+------+------+------+--------|
    * | LShift |   X  |   D  |   M  |   J  |   F  |      |           |      |   Ö  |   Ä  |   M  |   ,  |   .  | -      |
    * `--------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
@@ -44,7 +45,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                   // left hand
                   NO_BSLS, DE_EXLM, NO_QUO2, NO_AT, NO_DLR, DE_PERC, NO_LESS,
                   KC_DELT, KC_P,        KC_H,      KC_R,          KC_K,    KC_TAB,    MO(SYMB),
-                  KC_Z, KC_S,        KC_L,      KC_N,          KC_T,    KC_V,
+                  KC_Z, KC_S,        KC_L,      KC_N, LT(WNDOW, KC_T),    KC_V,
                   KC_LSFT, KC_X, KC_D,      KC_M,          KC_J,    KC_F,    KC_DOWN,
                   TG(MDIA), LCTL(LSFT(KC_TAB)), LCTL(KC_TAB), KC_LEFT, KC_RGHT,
 
@@ -59,8 +60,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                   ALT_T(NO_APOS),
 
                   // right hand
-                  NO_GRTR, NO_AMPR, DE_LCBR, NO_LPRN, NO_RPRN, DE_RCBR,             NO_EQL,
-                  TG(TXBOLT),  KC_AMPR,   KC_W,   KC_U,   KC_Y,   KC_B,             KC_Q,
+                  NO_GRTR, NO_AMPR, DE_LCBR, NO_LPRN, NO_RPRN, DE_RCBR, NO_EQL,
+                  TG(TXBOLT),  KC_AMPR,   KC_W,   KC_U,   KC_Y,   KC_B, KC_Q,
                   KC_G,   KC_A,   KC_I,   KC_O,   KC_E, KC_C,
                   KC_UP, DE_OE, DE_AE, KC_COMMA, KC_DOT, NO_MINS, MO(SYMB),
                   DE_QST, LALT(KC_TAB), DE_PIPE,KC_RBRC, TG(KEYLOCK),
@@ -241,7 +242,51 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                      KC_NO,   KC_NO,   KC_NO,   KC_NO, KC_NO,
                      KC_NO,   KC_NO,
                      KC_NO,
-                     KC_NO, KC_NO, KC_NO)};
+                     KC_NO, KC_NO, KC_NO),
+
+
+  /* Keymap 5: Window management
+   *
+   * ,--------------------------------------------------.           ,--------------------------------------------------.
+   * |        |      |      |      |      |      |      |           |      |      |      |      |      |      |        |
+   * |--------+------+------+------+------+-------------|           |------+------+------+------+------+------+--------|
+   * |        |      |      |      |      |      |      |           |      |      | TO 1 | TO 2 | TO 3 | TO 4 |        |
+   * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
+   * |        |      |      |      |      |      |------|           |------|      | WS 1 | WS 2 | WS 3 | WS 4 |        |
+   * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
+   * |        |      |      |      |      |      |      |           |      |      |SPLIT←|SPLIT→|MONTR←|MONTR→|        |
+   * `--------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
+   *   |      |      |      |      |      |                                       |      |      |      |      |      |
+   *   `----------------------------------'                                       `----------------------------------'
+   *                                        ,-------------.       ,-------------.
+   *                                        |      |      |       |      |      |
+   *                                 ,------|------|------|       |------+------+------.
+   *                                 |      |      |      |       |      |      |      |
+   *                                 |      |      |------|       |------|      |      |
+   *                                 |      |      |      |       |      |      |      |
+   *                                 `--------------------'       `--------------------'
+  */
+  [WNDOW] =
+  KEYMAP(KC_NO, KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
+         KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,  KC_NO,
+         KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
+         KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,   KC_NO,
+         KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
+         KC_NO,   KC_NO,
+         KC_NO,
+         KC_NO, KC_NO,   KC_NO,
+         // right hand
+         KC_NO, KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
+         // move window to workspace
+         KC_NO, KC_NO, LSFT(LGUI(KC_1)), LSFT(LGUI(KC_2)), LSFT(LGUI(KC_3)), LSFT(LGUI(KC_4)), KC_NO,
+         // go to workspace
+         KC_NO, LGUI(KC_1), LGUI(KC_2), LGUI(KC_3), LGUI(KC_4), KC_NO,
+         // miscellaneous window actions
+         KC_NO, KC_NO, LGUI(KC_LEFT), LGUI(KC_RIGHT), LGUI(LSFT(KC_LEFT)), LGUI(LSFT(KC_RIGHT)), KC_NO,
+         KC_NO, KC_NO,   KC_NO,   KC_NO, KC_NO,
+         KC_NO, KC_NO,
+         KC_NO,
+         KC_NO, KC_NO, KC_NO)};
 
 const uint16_t PROGMEM fn_actions[] = {
   [1] = ACTION_LAYER_TAP_TOGGLE(SYMB)                // FN1 - Momentary Layer 1 (Symbols)
@@ -316,6 +361,10 @@ void matrix_scan_user(void) {
   case 4:
     ergodox_right_led_1_on();
     ergodox_right_led_2_on();
+    break;
+  case 5:
+    ergodox_right_led_1_on();
+    ergodox_right_led_3_on();
     break;
   default:
     // none
