@@ -261,9 +261,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    *                                        ,-------------.       ,-------------.
    *                                        |      |      |       |      |      |
    *                                 ,------|------|------|       |------+------+------.
-   *                                 |      |      |      |       |      |      |      |
-   *                                 |      |      |------|       |------|      |      |
-   *                                 |      |      |      |       |      |      |      |
+   *                                 |      |      |      |       |      |      |Cycle |
+   *                                 |      |      |------|       |------|      |Window|
+   *                                 |      |      |      |       |      |      |     s|
    *                                 `--------------------'       `--------------------'
   */
   [WNDOW] =
@@ -286,7 +286,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
          KC_NO, KC_NO,   KC_NO,   KC_NO, KC_NO,
          KC_NO, KC_NO,
          KC_NO,
-         KC_NO, KC_NO, KC_NO)};
+         KC_NO, KC_NO, LALT(LSFT(KC_TAB)))};
 
 const uint16_t PROGMEM fn_actions[] = {
   [1] = ACTION_LAYER_TAP_TOGGLE(SYMB)                // FN1 - Momentary Layer 1 (Symbols)
