@@ -124,7 +124,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
    * |        |      |      |      |      |      |------|           |------|      | Left | Down | Up   | Right|  Play  |
    * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
-   * |        |      |      |      |      |      |      |           |      |      | Back | Fwd  |      |      |        |
+   * |        |      |      |      |scrsht|      |      |           |      |      | Back | Fwd  |      |      |        |
    * `--------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
    *   |      |      |      | Lclk | Rclk |                                       |VolUp |VolDn | Mute |      |      |
    *   `----------------------------------'                                       `----------------------------------'
@@ -141,7 +141,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                   RESET,   ____, ____, ____, KC_END, ____, ____,
                   ____, ____, ____, ____, ____, ____, ____,
                   ____, ____, ____, ____, ____, ____,
-                  ____, ____, ____, ____, ____, ____, ____,
+                  ____, ____, ____, ____, LCTL(LSFT(KC_PSCREEN)), ____, ____,
                   ____, ____, ____, ____, ____,
                   ____, ____,
                   ____,
@@ -208,22 +208,22 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 // TxBolt over Serial
 [TXBOLT] = KEYMAP(
-       KC_BSPC, KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,  
-       KC_NO,   M(NM),   M(NM),   M(NM),   M(NM),   M(NM),  KC_NO,  
+       KC_BSPC, KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
+       KC_NO,   M(NM),   M(NM),   M(NM),   M(NM),   M(NM),  KC_NO,
        KC_NO,   M(Sl),   M(Tl),   M(Pl),   M(Hl),   M(X),
        KC_NO,   M(Sl),   M(Kl),   M(Wl),   M(Rl),   M(X),   KC_NO,
        KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
-                                           KC_NO,   KC_NO,  
-                                                    KC_NO,  
-                                  M(Al),   M(Ol),   KC_NO,  
-    // right hand
-       KC_NO,    KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,  
+                                           KC_NO,   KC_NO,
+                                                    KC_NO,
+       M(Al),   M(Ol),   KC_NO,
+       // right hand
+       KC_NO,    KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
        ____,  M(NM),   M(NM),   M(NM),   M(NM),   M(NM),   M(NM),
        M(X),    M(Fr),   M(Pr),   M(Lr),   M(Tr),   M(Dr),
        KC_NO,    M(X),    M(Rr),   M(Br),   M(Gr),   M(Sr),   M(Zr),
-                          KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,  
-       KC_NO,   KC_NO,  
-       KC_NO,  
+                          KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
+       KC_NO,   KC_NO,
+       KC_NO,
        KC_NO,   M(Er),   M(Ur)),
 
   [KEYLOCK] = KEYMAP(KC_NO, KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
