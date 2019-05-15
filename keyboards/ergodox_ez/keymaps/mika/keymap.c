@@ -18,6 +18,7 @@
 #define TXBOLT 3 // TxBolt Steno Virtual Serial
 #define KEYLOCK 4 // key lock layer
 #define WNDOW 5 // window management in Fedora Linux
+#define LINUXMOUSE 6 // mouse emulation in linux with the numpad
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   /* Keymap 0: Basic layer
@@ -25,8 +26,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    * ,--------------------------------------------------.           ,--------------------------------------------------.
    * |   \    |   !  |   "  |   @  |   $  |   %  |   <  |           |  >   |   &  |   {  |   (  |   )  |   }  |   =    |
    * |--------+------+------+------+------+-------------|           |------+------+------+------+------+------+--------|
-   * | Del    |   P  |   H  |   R  |   K  |  TAB |  L1  |           |  TX  |   /  |   W  |   U  |   Y  |   B  |   Q    |
-   * |--------+------+------+------+------+------|      |           | BOLT |------+------+------+------+------+--------|
+   * | Del    |   P  |   H  |   R  |   K  |  TAB |Xmouse|           |  TX  |   /  |   W  |   U  |   Y  |   B  |   Q    |
+   * |--------+------+------+------+------+------|layer |           | BOLT |------+------+------+------+------+--------|
    * |   Z    |   S  |   L  |N/SYMB|T/WIND|   V  |------|           |------|   G  |   A  |   I  |   O  |   E  |   C    |
    * |--------+------+------+------+------+------| DOWN |           |  UP  |------+------+------+------+------+--------|
    * | LShift |   X  |   D  |M/MDIA|   J  |   F  |      |           |      |   Ö  |   Ä  |   M  |   ,  |   .  | -      |
@@ -44,7 +45,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [BASE] = KEYMAP(  // layer 0 : default
                   // left hand
                   NO_BSLS, DE_EXLM, NO_QUO2, NO_AT, NO_DLR, DE_PERC, NO_LESS,
-                  KC_DELT, KC_P,        KC_H,      KC_R,          KC_K,    KC_TAB,    MO(SYMB),
+                  KC_DELT, KC_P,        KC_H,      KC_R,          KC_K,    KC_TAB, TG(LINUXMOUSE),
                   KC_Z, KC_S,        KC_L, LT(SYMB, KC_N), LT(WNDOW, KC_T),    KC_V,
                   KC_LSFT, KC_X, KC_D, LT(MDIA, KC_M), KC_J, KC_F, KC_DOWN,
                   TG(SYMB), LCTL(LSFT(KC_TAB)), LCTL(KC_TAB), KC_LEFT, KC_RGHT,
@@ -286,7 +287,50 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
          KC_NO, KC_NO,   KC_NO,   KC_NO, KC_NO,
          KC_NO, KC_NO,
          KC_NO,
-         KC_NO, KC_NO, LALT(LSFT(KC_TAB)))};
+         KC_NO, KC_NO, LALT(LSFT(KC_TAB))),
+
+  /* Keymap 6: linux mouse emulation
+   *
+   * ,--------------------------------------------------.           ,--------------------------------------------------.
+   * |        |      |      |      |      |      |      |           |      |      |      |      |      |      |        |
+   * |--------+------+------+------+------+-------------|           |------+------+------+------+------+------+--------|
+   * |        |      |      |      |      |      |back  |           |      |      |  7   |  8   |  9   |      |        |
+   * |--------+------+------+------+------+------|layer1|           |      |------+------+------+------+------+--------|
+   * |        |      |      |      |      |      |------|           |------|      |  4   |drag  |  6   |      |        |
+   * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
+   * |        |      |      |      |      |      |      |           |      |      |  1   |  2   |  3   |      |        |
+   * `--------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
+   *   |      |      |      |      |      |                                       |      |      |      |      |      |
+   *   `----------------------------------'                                       `----------------------------------'
+   *                                        ,-------------.       ,-------------.
+   *                                        |      |      |       |      |      |
+   *                                 ,------|------|------|       |------+------+------.
+   *                                 |      |      |      |       |      |click |click |
+   *                                 |      |      |------|       |------| rmb  | lmb  |
+   *                                 |      |      |      |       |      |      |      |
+   *                                 `--------------------'       `--------------------'
+   */
+  [LINUXMOUSE] =
+  KEYMAP(KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
+         KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, TO(BASE),
+         KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
+         KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
+         KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
+         KC_NO, KC_NO,
+         KC_NO,
+         KC_NO, KC_NO, KC_NO,
+         // right hand
+         // right hand
+         KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,   KC_NO,
+         KC_NO, KC_NO, KC_KP_7,  KC_KP_8,  KC_KP_9,  KC_NO,   KC_NO,
+         KC_NO, KC_KP_4,  KC_KP_0,  KC_KP_6,  KC_NO, KC_NO,
+         KC_NO, KC_NO, KC_KP_1,  KC_KP_2,  KC_KP_3,  NO_BSLS, KC_NO,
+         KC_KP_0,  KC_NO, KC_NO, KC_NO, KC_NO,
+         KC_NO, KC_NO,
+         KC_NO,
+         KC_NO, KC_APP, KC_KP_5
+         )
+};
 
 const uint16_t PROGMEM fn_actions[] = {
   [1] = ACTION_LAYER_TAP_TOGGLE(SYMB)                // FN1 - Momentary Layer 1 (Symbols)
@@ -366,6 +410,9 @@ void matrix_scan_user(void) {
     ergodox_right_led_1_on();
     ergodox_right_led_3_on();
     break;
+  case LINUXMOUSE:
+    ergodox_right_led_1_on();
+
   default:
     // none
     break;
