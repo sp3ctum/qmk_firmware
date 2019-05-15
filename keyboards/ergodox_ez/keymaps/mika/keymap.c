@@ -31,7 +31,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    * |--------+------+------+------+------+------| DOWN |           |  UP  |------+------+------+------+------+--------|
    * | LShift |   X  |   D  |M/MDIA|   J  |   F  |      |           |      |   Ö  |   Ä  |   M  |   ,  |   .  | -      |
    * `--------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
-   *   |Grv/L1|CoSTab|CtlTab| Left | Right|                                       |  ?   |Alttab|   |  |   ¨  | ~L1  |
+   *   |T_SYMB|CoSTab|CtlTab| Left | Right|                                       |  ?   |Alttab|   |  |   ¨  | ~L1  |
    *   `----------------------------------'                                       `----------------------------------'
    *                                        ,-------------.       ,-------------.
    *                                        | App  | LGui |       | Alt  |Ctrl/Esc|
@@ -47,7 +47,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                   KC_DELT, KC_P,        KC_H,      KC_R,          KC_K,    KC_TAB,    MO(SYMB),
                   KC_Z, KC_S,        KC_L, LT(SYMB, KC_N), LT(WNDOW, KC_T),    KC_V,
                   KC_LSFT, KC_X, KC_D, LT(MDIA, KC_M), KC_J, KC_F, KC_DOWN,
-                  TG(MDIA), LCTL(LSFT(KC_TAB)), LCTL(KC_TAB), KC_LEFT, KC_RGHT,
+                  TG(SYMB), LCTL(LSFT(KC_TAB)), LCTL(KC_TAB), KC_LEFT, KC_RGHT,
 
                   // left thumb cluster
                   // two top keys
