@@ -237,23 +237,24 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    *                                 `--------------------'       `--------------------'
    */
   [LINUXMOUSE] =
-  LAYOUT_ergodox(KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-         KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, TO(BASE),
-         KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_DOWN,
-         KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_WH_L, KC_WH_D,
-         KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-         KC_TRNS, KC_TRNS,
-         KC_TRNS,
-         KC_TRNS, KC_TRNS, KC_TRNS,
-         // right hand
-         KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-         KC_TRNS, KC_TRNS, KC_KP_7, KC_KP_9, KC_TRNS, KC_TRNS, KC_TRNS,
-         KC_UP,   KC_KP_4, KC_KP_2, KC_KP_8, KC_KP_6, KC_TRNS,
-         KC_WH_U, KC_WH_R, KC_KP_1, KC_KP_3, KC_TRNS, NO_BSLS, KC_TRNS,
-         KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-         KC_TRNS, KC_TRNS,
-         KC_TRNS,
-         KC_BTN3, KC_BTN2,  KC_BTN1
+  LAYOUT_ergodox(
+                 KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+                 KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, TO(BASE),
+                 KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_WH_D,
+                 KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_WH_L, KC_DOWN,
+                 KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+                 KC_TRNS, KC_TRNS,
+                 KC_TRNS,
+                 KC_TRNS, KC_TRNS, KC_TRNS,
+                 // right hand
+                 KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+                 KC_TRNS, KC_TRNS, KC_KP_7, KC_KP_9, KC_TRNS, KC_TRNS, KC_TRNS,
+                 KC_WH_U, KC_KP_4, KC_KP_2, KC_KP_8, KC_KP_6, KC_TRNS,
+                 KC_UP,   KC_WH_R, KC_KP_1, KC_KP_3, KC_TRNS, NO_BSLS, KC_TRNS,
+                 KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+                 KC_TRNS, KC_TRNS,
+                 KC_TRNS,
+                 KC_BTN3, KC_BTN2, KC_BTN1
          )
 };
 
