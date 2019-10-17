@@ -3,4 +3,5 @@
 # modify the keymap and keyboard assignment to compile what you want
 # defaults are ergodox/default
 
-docker run -e keymap=mika -e keyboard=ergodox_ez --rm -v $('pwd'):/qmk:rw edasque/qmk_firmware
+# docker run -e keymap=mika -e keyboard=ergodox_ez --rm -v $('pwd'):/qmk:rw edasque/qmk_firmware
+./util/docker_build.sh ergodox_ez:mika
