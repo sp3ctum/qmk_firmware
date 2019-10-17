@@ -15,36 +15,37 @@
 
 # MCU name
 MCU = atmega32a
-PROTOCOL = VUSB
 
-# unsupported features for now
-NO_UART = yes
-NO_SUSPEND_POWER_DOWN = yes
-
-# processor frequency
-F_CPU = 12000000
-
-# Bootloader
-#     This definition is optional, and if your keyboard supports multiple bootloaders of
-#     different sizes, comment this out, and the correct address will be loaded 
-#     automatically (+60). See bootloader.mk for all options.
-BOOTLOADER = atmel-dfu
+# Bootloader selection
+#   Teensy       halfkay
+#   Pro Micro    caterina
+#   Atmel DFU    atmel-dfu
+#   LUFA DFU     lufa-dfu
+#   QMK DFU      qmk-dfu
+#   ATmega32A    bootloadHID
+#   ATmega328P   USBasp
+BOOTLOADER = bootloadHID
 
 # build options
-BOOTMAGIC_ENABLE = yes
-MOUSEKEY_ENABLE = yes
+BOOTMAGIC_ENABLE = no
+MOUSEKEY_ENABLE = no
 EXTRAKEY_ENABLE = yes
-CONSOLE_ENABLE = yes
-COMMAND_ENABLE = yes
-BACKLIGHT_ENABLE = no
+CONSOLE_ENABLE = no
+COMMAND_ENABLE = no
+
+BACKLIGHT_ENABLE = yes
+BACKLIGHT_CUSTOM_DRIVER = yes
+
 RGBLIGHT_ENABLE = yes
 RGBLIGHT_CUSTOM_DRIVER = yes
+
+KEY_LOCK_ENABLE = yes
+
+# Do not enable SLEEP_LED_ENABLE. it uses the same timer as BACKLIGHT_ENABLE
+SLEEP_LED_ENABLE = no    # Breathing sleep LED during USB suspend
 
 OPT_DEFS = -DDEBUG_LEVEL=0
 
 # custom matrix setup
 CUSTOM_MATRIX = yes
-SRC = matrix.c i2c.c
-
-# programming options
-PROGRAM_CMD = ./keyboards/ps2avrGB/program $(TARGET).hex
+SRC = matrix.c i2c.c backlight.c
