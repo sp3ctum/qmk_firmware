@@ -38,9 +38,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    *                                        ,-------------.       ,-------------.
    *                                        | App  | LGui |       | Alt  |Ctrl/Esc|
    *                                 ,------|------|------|       |------+--------+------.
-   *                                 |Ctrl /|      | Home |       | PgUp |        |      |
-   *                                 |Esc   |Backsp|------|       |------|  Back- |Space |
-   *                                 |      |ace   | '/ALT|       |  _   |  Space |      |
+   *                                 |Ctrl /|      | Home |       | PgUp | Shift/ |      |
+   *                                 |Esc   |Enter |------|       |------|  Back- |Space |
+   *                                 |      |      | '/ALT|       |  _   |  Space |      |
    *                                 `--------------------'       `----------------------'
    */
   [BASE] = LAYOUT_ergodox(  // layer 0 : default
@@ -74,7 +74,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                   // right middle and bottom small keys
                   KC_PGUP, NO_UNDS,
                   // right big keys
-                  KC_BSPACE, KC_SPACE),
+                  SFT_T(KC_BSPACE), KC_SPACE),
   /* Keymap 1: Symbol Layer
    *
    * ,--------------------------------------------------.           ,--------------------------------------------------.
