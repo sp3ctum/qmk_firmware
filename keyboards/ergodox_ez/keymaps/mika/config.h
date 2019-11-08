@@ -1,13 +1,11 @@
 #define FORCE_NKRO
 
-/* #undef MOUSEKEY_INTERVAL */
-/* #undef MOUSEKEY_DELAY */
-/* #undef MOUSEKEY_TIME_TO_MAX */
-/* #undef MOUSEKEY_MAX_SPEED */
-/* #undef MOUSEKEY_WHEEL_DELAY */
+#define TAPPING_TERM 200
 
-/* #define MOUSEKEY_INTERVAL    16 */
-/* #define MOUSEKEY_DELAY       0 */
-/* #define MOUSEKEY_TIME_TO_MAX 60 */
-/* #define MOUSEKEY_MAX_SPEED   7 */
-/* #define MOUSEKEY_WHEEL_DELAY 100 */
+#define TAP(keycode) register_code16(keycode); unregister_code16(keycode)
+
+#define TAP_WITH_MOD(mod, key)                  \
+    register_code(mod);                         \
+    register_code(key);                         \
+    unregister_code(key);                       \
+    unregister_code(mod)

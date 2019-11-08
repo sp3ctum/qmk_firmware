@@ -16,14 +16,19 @@
 #define WNDOW 5 // window management in Fedora Linux
 #define LINUXMOUSE 6 // mouse emulation in linux with the numpad
 
+// Tap Dance Declarations
+enum {
+      ESC_ALTF4 = 0, // Single tap = ESCAPE; Triple tap = ALT+F4
+};
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   /* Keymap 0: Basic layer
    *
    * ,--------------------------------------------------.           ,--------------------------------------------------.
    * |   \    |   !  |   "  |   @  |   $  |   %  |   <  |           |  >   |   &  |   {  |   (  |   )  |   }  |   =    |
    * |--------+------+------+------+------+-------------|           |------+------+------+------+------+------+--------|
-   * | Del    |   P  |   H  |   R  |   K  |  TAB |Xmouse|           |  TX  |   /  |   W  |   U  |   Y  |   B  |   Q    |
-   * |--------+------+------+------+------+------|layer |           | BOLT |------+------+------+------+------+--------|
+   * | Del    |   P  |   H  |   R  |   K  |  TAB |Xmouse|           |      |   /  |   W  |   U  |   Y  |   B  |   Q    |
+   * |--------+------+------+------+------+------|layer |           |      |------+------+------+------+------+--------|
    * |   Z    |   S  |   L  |N/SYMB|T/WIND|   V  |------|           |------|   G  |   A  |   I  |   O  |   E  |   C    |
    * |--------+------+------+------+------+------| DOWN |           |  UP  |------+------+------+------+------+--------|
    * | LShift |   X  |   D  |M/MDIA|   J  |   F  |      |           |      |   Ö  |   Ä  |   M  |   ,  |   .  | -      |
@@ -40,10 +45,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    */
   [BASE] = LAYOUT_ergodox(  // layer 0 : default
                   // left hand
-                  NO_BSLS, DE_EXLM, NO_QUO2, NO_AT, NO_DLR, DE_PERC, NO_LESS,
-                  KC_DELT, KC_P,        KC_H,      KC_R,          KC_K,    KC_TAB, TG(LINUXMOUSE),
-                  KC_Z, KC_S,        KC_L, LT(SYMB, KC_N), LT(WNDOW, KC_T),    KC_V,
-                  KC_LSFT, KC_X, KC_D, LT(MDIA, KC_M), KC_J, KC_F, KC_DOWN,
+                  NO_BSLS,  DE_EXLM,            NO_QUO2,      NO_AT,   NO_DLR,  DE_PERC,  NO_LESS,
+                  KC_DELT,  KC_P,               KC_H,         KC_R,    KC_K,    KC_TAB,   TG(LINUXMOUSE),
+                  KC_Z,     KC_S,               KC_L,         LT(SYMB, KC_N),   LT(WNDOW, KC_T),          KC_V,
+                  KC_LSFT,  KC_X,               KC_D,         LT(MDIA, KC_M),   KC_J,     KC_F,           KC_DOWN,
                   TG(SYMB), LCTL(LSFT(KC_TAB)), LCTL(KC_TAB), KC_LEFT, KC_RGHT,
 
                   // left thumb cluster
@@ -57,11 +62,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                   ALT_T(NO_APOS),
 
                   // right hand
-                  NO_GRTR, NO_AMPR, DE_LCBR, NO_LPRN, NO_RPRN, DE_RCBR, NO_EQL,
-                  KC_NO,  KC_AMPR,   KC_W,   KC_U,   KC_Y,   KC_B, KC_Q,
-                  KC_G,   KC_A,   KC_I,   KC_O,   KC_E, KC_C,
-                  KC_UP, DE_OE, DE_AE, KC_COMMA, KC_DOT, NO_MINS, MO(SYMB),
-                  DE_QST, LALT(KC_TAB), DE_PIPE,KC_RBRC, TG(KEYLOCK),
+                  NO_GRTR,       NO_AMPR,      DE_LCBR, NO_LPRN,  NO_RPRN,     DE_RCBR, NO_EQL,
+                  TD(ESC_ALTF4), KC_AMPR,      KC_W,    KC_U,     KC_Y,        KC_B,    KC_Q,
+                  KC_G,          KC_A,         KC_I,    KC_O,     KC_E,        KC_C,
+                  KC_UP,         DE_OE,        DE_AE,   KC_COMMA, KC_DOT,      NO_MINS, MO(SYMB),
+                  DE_QST,        LALT(KC_TAB), DE_PIPE, KC_RBRC,  TG(KEYLOCK),
 
                   // right thumb cluster
                   // two top small keys
@@ -304,3 +309,18 @@ void matrix_scan_user(void) {
   }
 
 };
+
+
+void escape_and_altf4_tapdance(qk_tap_dance_state_t *state, void *user_data) {
+    if (state->count == 1) {
+        TAP(KC_ESC);
+    }
+    else if (state->count == 3) {
+        TAP_WITH_MOD(KC_LALT, KC_F4);
+    }
+}
+
+qk_tap_dance_action_t tap_dance_actions[] =
+    {
+     [ESC_ALTF4] = ACTION_TAP_DANCE_FN(escape_and_altf4_tapdance)
+    };
