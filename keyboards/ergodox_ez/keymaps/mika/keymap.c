@@ -38,7 +38,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    * |--------+------+------+------+------+------|layer |           |      |------+------+------+------+------+--------|
    * |   Z    |   S  |   L  |N/SYMB|T/WIND|   V  |------|           |------|   G  |   A  |   I  |   O  |   E  |   C    |
    * |--------+------+------+------+------+------| DOWN |           |  UP  |------+------+------+------+------+--------|
-   * | LShift |   X  |   D  |M/MDIA|   J  |   F  |      |           |      |   Ö  |   Ä  |   M  |   ,  |   .  | -      |
+   * |CapsLock|   X  |   D  |M/MDIA|   J  |   F  |      |           |      |   Ö  |   Ä  |   M  |   ,  |   .  | -      |
    * `--------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
    *   |T_SYMB|CoSTab|CtlTab| Left | Right|                                       |  ?   |Alttab|   |  |   ¨  | ~L1  |
    *   `----------------------------------'                                       `----------------------------------'
@@ -55,7 +55,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                   NO_BSLS,  DE_EXLM,     NO_QUO2, NO_AT,    NO_DLR,   DE_PERC, NO_LESS,
                   KC_DELT,  KC_P,        KC_H,    KC_R,     KC_K,     KC_TAB,  TG(LINUXMOUSE),
                   KC_Z,     KC_S,        KC_L,    SYMBOL_N, WINDOW_T, KC_V,
-                  KC_LSFT,  KC_X,        KC_D,    MEDIA_M,  KC_J,     KC_F,    KC_DOWN,
+                  KC_CAPS,  KC_X,        KC_D,    MEDIA_M,  KC_J,     KC_F,    KC_DOWN,
                   TG(SYMB), CTL_SFT_TAB, CTL_TAB, KC_LEFT,  KC_RGHT,
 
                   // left thumb cluster
