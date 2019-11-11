@@ -13,13 +13,20 @@
 #define SYMB 1 // symbols
 #define MDIA 2 // media keys
 #define KEYLOCK 4 // key lock layer
-#define WNDOW 5 // window management in Fedora Linux
+#define WINDOW 5 // window management in Fedora Linux
 #define LINUXMOUSE 6 // mouse emulation in linux with the numpad
 
 // Tap Dance Declarations
 enum {
       ESC_ALTF4 = 0, // Single tap = ESCAPE; Triple tap = ALT+F4
 };
+
+// shortcuts for readability
+#define WINDOW_T    LT(WINDOW, KC_T)
+#define SYMBOL_N    LT(SYMB, KC_N)
+#define MEDIA_M     LT(MDIA,  KC_M)
+#define CTL_SFT_TAB LCTL(LSFT(KC_TAB))
+#define CTL_TAB     LCTL(KC_TAB)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   /* Keymap 0: Basic layer
@@ -45,11 +52,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    */
   [BASE] = LAYOUT_ergodox(  // layer 0 : default
                   // left hand
-                  NO_BSLS,  DE_EXLM,            NO_QUO2,      NO_AT,   NO_DLR,  DE_PERC,  NO_LESS,
-                  KC_DELT,  KC_P,               KC_H,         KC_R,    KC_K,    KC_TAB,   TG(LINUXMOUSE),
-                  KC_Z,     KC_S,               KC_L,         LT(SYMB, KC_N),   LT(WNDOW, KC_T),          KC_V,
-                  KC_LSFT,  KC_X,               KC_D,         LT(MDIA, KC_M),   KC_J,     KC_F,           KC_DOWN,
-                  TG(SYMB), LCTL(LSFT(KC_TAB)), LCTL(KC_TAB), KC_LEFT, KC_RGHT,
+                  NO_BSLS,  DE_EXLM,     NO_QUO2, NO_AT,    NO_DLR,   DE_PERC, NO_LESS,
+                  KC_DELT,  KC_P,        KC_H,    KC_R,     KC_K,     KC_TAB,  TG(LINUXMOUSE),
+                  KC_Z,     KC_S,        KC_L,    SYMBOL_N, WINDOW_T, KC_V,
+                  KC_LSFT,  KC_X,        KC_D,    MEDIA_M,  KC_J,     KC_F,    KC_DOWN,
+                  TG(SYMB), CTL_SFT_TAB, CTL_TAB, KC_LEFT,  KC_RGHT,
 
                   // left thumb cluster
                   // two top keys
@@ -198,7 +205,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    *                                 |      |      |      |       |      |      |     s|
    *                                 `--------------------'       `--------------------'
   */
-  [WNDOW] =
+  [WINDOW] =
   LAYOUT_ergodox(KC_NO, KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
          KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,  KC_NO,
          KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
