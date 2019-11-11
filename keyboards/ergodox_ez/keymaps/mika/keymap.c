@@ -319,11 +319,14 @@ void matrix_scan_user(void) {
 
 
 void escape_and_altf4_tapdance(qk_tap_dance_state_t *state, void *user_data) {
-    if (state->count == 1) {
-        TAP(KC_ESC);
-    }
-    else if (state->count == 3) {
-        TAP_WITH_MOD(KC_LALT, KC_F4);
+    switch(state->count) {
+        case 1:
+            TAP(KC_ESC);
+            break;
+        case 2:
+        case 3:
+            TAP_WITH_MOD(KC_LALT, KC_F4);
+            break;
     }
 }
 
