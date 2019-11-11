@@ -45,7 +45,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    *                                        ,-------------.       ,-------------.
    *                                        | App  | LGui |       | Alt  |Ctrl/Esc|
    *                                 ,------|------|------|       |------+--------+------.
-   *                                 |Ctrl /|      | Home |       | PgUp | Shift/ |      |
+   *                                 |Ctrl /|      |PgDown|       | PgUp | Shift/ |      |
    *                                 |Esc   |Enter |------|       |------|  Back- |Space |
    *                                 |      |      | '/ALT|       |  _   |  Space |      |
    *                                 `--------------------'       `----------------------'
@@ -62,7 +62,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                   // two top keys
                   ALT_T(KC_APP),  KC_LGUI,
                   // left small middle key
-                  KC_HOME,
+                  KC_PGDOWN,
                   // two big keys
                   CTL_T(KC_ESCAPE),KC_ENTER,
                   // left small bottom key
