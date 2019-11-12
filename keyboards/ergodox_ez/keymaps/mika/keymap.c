@@ -329,6 +329,8 @@ void escape_and_altf4_tapdance(qk_tap_dance_state_t *state, void *user_data) {
             TAP(KC_ESC);
             break;
         case 2:
+            TAP_WITH_MOD(KC_LGUI, KC_L);
+            break;
         case 3:
             TAP_WITH_MOD(KC_LALT, KC_F4);
             break;
