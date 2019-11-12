@@ -308,10 +308,15 @@ void matrix_scan_user(void) {
     ergodox_right_led_3_on();
     break;
   case LINUXMOUSE:
-    ergodox_right_led_1_on();
+    ergodox_right_led_3_set(LED_BRIGHTNESS_LO);
+    ergodox_right_led_3_on();
+    break;
 
   default:
     // none
+    ergodox_right_led_1_set(LED_BRIGHTNESS_HI);
+    ergodox_right_led_2_set(LED_BRIGHTNESS_HI);
+    ergodox_right_led_3_set(LED_BRIGHTNESS_HI);
     break;
   }
 
