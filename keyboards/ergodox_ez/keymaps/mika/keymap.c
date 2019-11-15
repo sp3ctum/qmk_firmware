@@ -28,6 +28,8 @@ enum {
 #define CTL_SFT_TAB LCTL(LSFT(KC_TAB))
 #define CTL_TAB     LCTL(KC_TAB)
 
+bool capsOn = false;
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   /* Keymap 0: Basic layer
    *
@@ -289,9 +291,9 @@ void matrix_scan_user(void) {
   ergodox_right_led_3_off();
 
   switch (layer) {
-    // TODO: Make this relevant to the ErgoDox EZ.
+      // TODO: Make this relevant to the ErgoDox EZ.
   case 1:
-    ergodox_right_led_1_on();
+      ergodox_right_led_1_on();
     break;
   case 2:
     ergodox_right_led_2_on();
@@ -320,13 +322,17 @@ void matrix_scan_user(void) {
     break;
   }
 
+  if(capsOn) {
+      ergodox_right_led_2_set(LED_BRIGHTNESS_LO);
+      ergodox_right_led_2_on();
+  }
 };
 
 
 void escape_and_altf4_tapdance(qk_tap_dance_state_t *state, void *user_data) {
     switch(state->count) {
         case 1:
-            TAP(KC_ESC);
+            TAP_WITH_MOD(KC_RGUI, KC_DEL);
             break;
         case 2:
             TAP_WITH_MOD(KC_LGUI, KC_L);
@@ -341,3 +347,12 @@ qk_tap_dance_action_t tap_dance_actions[] =
     {
      [ESC_ALTF4] = ACTION_TAP_DANCE_FN(escape_and_altf4_tapdance)
     };
+
+
+void led_set_user(uint8_t usb_led){
+    if (usb_led & (1 << USB_LED_CAPS_LOCK)) {
+        capsOn = true;
+    } else {
+        capsOn = false;
+    }
+}
