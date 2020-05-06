@@ -3,6 +3,7 @@
 #define MOUSEKEY_WHEEL_TIME_TO_MAX 5
 
 #define TAPPING_TERM 200
+#define DEBOUNCE 30
 
 #define TAP(keycode) register_code16(keycode); unregister_code16(keycode)
 

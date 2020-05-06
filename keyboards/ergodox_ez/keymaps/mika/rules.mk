@@ -1,1 +1,2 @@
 TAP_DANCE_ENABLE = yes
+DEBOUNCE_TYPE = eager_pr
